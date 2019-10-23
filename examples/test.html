@@ -19,12 +19,13 @@
 const module = document.getElementById('module')
 
 const App = () => {
-  const { count, start } = useCountDown(5)
+  const {count, isRunning, start, stop} = useCountDown(60)
 
   return (
     <div>
-      {count}
+      {isRunning ? `${count}s` : 'click the right button the start'}
       <button onClick={start}>start</button>
+      <button onClick={stop}>stop</button>
     </div>
   )
 }

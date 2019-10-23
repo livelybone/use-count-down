@@ -30,7 +30,10 @@ export default function useCountDown(maxTime: number = 60) {
           })
         }, 1000)
       },
-      stop: () => clearInterval(timer.current),
+      stop: () => {
+        clearInterval(timer.current)
+        setRunning(false)
+      },
     }),
     [count, isRunning, maxTime],
   )

@@ -1,7 +1,7 @@
 # use-count-down
 [![NPM Version](http://img.shields.io/npm/v/use-count-down.svg?style=flat-square)](https://www.npmjs.com/package/use-count-down)
 [![Download Month](http://img.shields.io/npm/dm/use-count-down.svg?style=flat-square)](https://www.npmjs.com/package/use-count-down)
-![gzip with dependencies: kb](https://img.shields.io/badge/gzip--with--dependencies-kb-brightgreen.svg "gzip with dependencies: kb")
+![gzip with dependencies: 0.6kb](https://img.shields.io/badge/gzip--with--dependencies-0.6kb-brightgreen.svg "gzip with dependencies: 0.6kb")
 ![typescript](https://img.shields.io/badge/typescript-supported-blue.svg "typescript")
 ![pkg.module](https://img.shields.io/badge/pkg.module-supported-blue.svg "pkg.module")
 
@@ -38,9 +38,23 @@ npm i -S use-count-down
 去 [index.d.ts](./index.d.ts) 查看可用方法和参数
 
 ## Usage
-```js
-import * as useCountDown from 'use-count-down'
+```typescript jsx
+import React from 'react'
+import useCountDown from 'use-count-down'
+
+const Comp = () => {
+  const {count, isRunning, start, stop} = useCountDown(60)
+  
+  return (
+    <div>
+      {isRunning ? `${count}s` : 'click the right button the start'}
+      <button onClick={start}>start</button>
+      <button onClick={stop}>stop</button>
+    </div>
+  )
+}
 ```
+
 
 在 HTML 文件中直接引用，你可以在 [CDN: unpkg](https://unpkg.com/@livelybone/form/lib/umd/) 看到你能用到的所有 js 脚本
 ```html
